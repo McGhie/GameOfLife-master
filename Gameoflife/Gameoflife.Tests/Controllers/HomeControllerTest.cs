@@ -26,26 +26,26 @@ namespace Gameoflife.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void Templates()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Templates() as ViewResult;
 
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
         [TestMethod]
-        public void Contact()
+        public void Active()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Active() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

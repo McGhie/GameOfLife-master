@@ -139,6 +139,7 @@ namespace Gameoflife.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
             return View();
         }
 
