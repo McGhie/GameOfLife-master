@@ -29,7 +29,8 @@ namespace Gameoflife.Tests.Controllers
         public void Templates()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            UserTemplatesController controller= new UserTemplatesController();
+        //    HomeController controller = new HomeController();
 
             // Act
             ViewResult result = controller.Templates() as ViewResult;
@@ -39,6 +40,7 @@ namespace Gameoflife.Tests.Controllers
         }
 
         [TestMethod]
+        [Authorize]
         public void Active()
         {
             // Arrange

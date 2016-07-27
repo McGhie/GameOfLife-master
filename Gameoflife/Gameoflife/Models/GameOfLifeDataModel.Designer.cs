@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\uni\2016\Web Development Technologies\GameOfLife\GameOfLife-master\Gameoflife\Gameoflife\Models\Template.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\uni\2016\Web Development Technologies\GameOfLife\GameOfLife-master\Gameoflife\Gameoflife\Models\GameOfLifeDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

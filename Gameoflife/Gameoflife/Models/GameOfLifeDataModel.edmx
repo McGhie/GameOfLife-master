@@ -141,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GameOfLifeDataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GameOfLifeDataEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="UserGames" EntityType="Self.UserGame" />
           <EntitySet Name="UserTemplates" EntityType="Self.UserTemplate" />
@@ -159,7 +159,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GameOfLifeDataModelStoreContainer" CdmEntityContainer="GameOfLifeDataEntities">
+        <EntityContainerMapping StorageEntityContainer="GameOfLifeDataModelStoreContainer" CdmEntityContainer="GameOfLifeDataEntities1">
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="GameOfLifeDataModel.User">
               <MappingFragment StoreEntitySet="User">

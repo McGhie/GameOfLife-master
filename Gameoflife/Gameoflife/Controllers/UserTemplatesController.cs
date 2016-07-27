@@ -12,9 +12,10 @@ namespace Gameoflife.Controllers
 {
     public class UserTemplatesController : Controller
     {
-        private GameOfLifeDataEntities db = new GameOfLifeDataEntities();
+        private GameOfLifeDataEntities1 db = new GameOfLifeDataEntities1();
 
         // GET: UserTemplates
+        
         public ActionResult Templates()
         {
             var userTemplates = db.UserTemplates.Include(u => u.User);
@@ -37,6 +38,7 @@ namespace Gameoflife.Controllers
         }
 
         // GET: UserTemplates/Create
+        
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(db.Users, "UserID", "Email");
@@ -48,6 +50,7 @@ namespace Gameoflife.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "UserTemplateID,UserID,Name,Height,Width,Cells")] UserTemplate userTemplate)
         {
             if (ModelState.IsValid)

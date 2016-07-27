@@ -1,42 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using CryptSharp;
 using Gameoflife.Models;
 
 namespace Gameoflife.Controllers
 {
     public class UsersController : Controller
     {
-        private GameOfLifeDataEntities db = new GameOfLifeDataEntities();
+        private GameOfLifeDataEntities1 db = new GameOfLifeDataEntities1();
 
-        // GET: Users
-        public ActionResult Index()
-        {
-            return View(db.Users.ToList());
-        }
-
-        // GET: Users/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
 
         // GET: Users/Create
-        public ActionResult Create()
+        [AllowAnonymous]
+        public ActionResult Register()
         {
             return View();
         }
@@ -46,73 +22,57 @@ namespace Gameoflife.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Email,Password,FirstName,LastName,IsAdmin")] User user)
+        public ActionResult Register([Bind(Include = "Email,Password,FirstName,LastName")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.IsAdmin = false;
+                user.Password = Crypter.Blowfish.Crypt(user.Password);
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
-            return View(user);
+            return View();
         }
 
-        // GET: Users/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Login()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
+            
+            return View();
         }
 
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Email,Password,FirstName,LastName,IsAdmin")] User user)
+        [ActionName("Login")]
+        public ActionResult Login([Bind(Include = "Email,Password")] User user)
         {
-            if (ModelState.IsValid)
+            using (var database = new GameOfLifeDataEntities1())
+
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                User login = database.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
+
+                if (login != null)
+                {
+                    Session["User"] = user;
+                    return RedirectToAction("Index", "Home");
+                    
+                }
+
+
+
             }
+            ViewBag.LoginErrorMessage = "Fail To log in";
+
             return View(user);
         }
 
-        // GET: Users/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Logout()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
 
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+
         }
 
         protected override void Dispose(bool disposing)

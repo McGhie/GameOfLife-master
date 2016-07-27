@@ -12,7 +12,7 @@ namespace Gameoflife.Controllers
 {
     public class UserGamesController : Controller
     {
-        private GameOfLifeDataEntities db = new GameOfLifeDataEntities();
+        private GameOfLifeDataEntities1 db = new GameOfLifeDataEntities1();
 
         // GET: UserGames
         public ActionResult Index()
