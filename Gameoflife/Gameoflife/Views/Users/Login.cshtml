@@ -1,0 +1,34 @@
+﻿@using System.Web.Mvc.Html
+@model Gameoflife.Models.User
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>Login</h2>
+
+            @using (Html.BeginForm())
+            {
+    
+        <table>
+            <tr>
+                <td>UserName:</td>
+                <td>@Html.EditorFor(model => model.Email)</td>
+
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td>@Html.PasswordFor(model => model.Password)</td>
+            </tr>
+            <tr><td></td>
+
+                <td>
+                    <input class="btn-primary" type="submit" value="Login"/>
+                    <span class ="text-danger">@ViewBag.LoginErrorMessage</span>
+                </td>
+            
+            </tr>
+
+
+        </table>
+            }
+
