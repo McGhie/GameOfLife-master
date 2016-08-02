@@ -51,9 +51,9 @@ namespace Gameoflife.Controllers
             {
                 User login = database.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
-                if (login != null)
+                if (login != null)// && Crypter.CheckPassword(user.Password,login.Password))
                 {
-                    Session["User"] = user;
+                    Session["User"] = login;
                     return RedirectToAction("Index", "Home");
                     
                 }

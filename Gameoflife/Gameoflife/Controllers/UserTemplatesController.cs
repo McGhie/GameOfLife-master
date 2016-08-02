@@ -10,6 +10,7 @@ using Gameoflife.Models;
 
 namespace Gameoflife.Controllers
 {
+   
     public class UserTemplatesController : Controller
     {
         private GameOfLifeDataEntities1 db = new GameOfLifeDataEntities1();
@@ -51,16 +52,19 @@ namespace Gameoflife.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "UserTemplateID,UserID,Name,Height,Width,Cells")] UserTemplate userTemplate)
+        public ActionResult Create(UserTemplate userTemplate)
         {
             if (ModelState.IsValid)
             {
+                User user = (User) Session["User"];
+                userTemplate.UserID = user.UserID;
+
                 db.UserTemplates.Add(userTemplate);
                 db.SaveChanges();
                 return RedirectToAction("Templates");
             }
 
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Email", userTemplate.UserID);
+          // ViewBag.UserID = new SelectList(db.Users, "UserID", "Email", userTemplate.UserID);
             return View(userTemplate);
         }
 
