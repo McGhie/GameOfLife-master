@@ -26,7 +26,7 @@ namespace Gameoflife.Controllers
         {
             if (ModelState.IsValid)
             {
-                User exists = db.Users.FirstOrDefault(u => u.Email == user.Email || (u.FirstName == user.FirstName && u.LastName == user.LastName));
+                User exists = db.Users.FirstOrDefault(u => u.Email == user.Email || (u.FirstName==user.FirstName && u.LastName==user.LastName));
                 if (exists != null)
                 {
                     ViewBag.RegisterErrorMessage = "User already exists";
@@ -46,7 +46,7 @@ namespace Gameoflife.Controllers
 
         public ActionResult Login()
         {
-
+            
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace Gameoflife.Controllers
 
                 if (login != null)
                 {
-                    bool matches = Crypter.CheckPassword(user.Password, login.Password);
+                    bool matches = Crypter.CheckPassword(user.Password ,login.Password );
                     if (matches != true)
                     {
                         ViewBag.LoginErrorMessage = "Fail To log in";
@@ -71,11 +71,11 @@ namespace Gameoflife.Controllers
                         Session["User"] = user;
                         return RedirectToAction("Index", "Home");
                     }
-
-
+                    
+                    
                 }
 
-
+             
             }
             ViewBag.LoginErrorMessage = "Fail To log in";
 
