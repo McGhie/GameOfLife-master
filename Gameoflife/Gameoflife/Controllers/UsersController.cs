@@ -68,7 +68,7 @@ namespace Gameoflife.Controllers
                     }
                     else
                     {
-                        Session["User"] = user;
+                        Session["User"] = login;
                         return RedirectToAction("Index", "Home");
                     }
 

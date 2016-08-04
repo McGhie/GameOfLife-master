@@ -34,16 +34,29 @@ namespace Gameoflife.Models
 
     }
 
+    public class UserTemplateMetadata
+    {
+        [Required]
+        public string Name { get; set;}
+
+        [Required, Range(1, 20)]
+        public string Width { get; set; }
+        [Required, Range(1, 20)]
+        public string Height { get; set; }
+        [Required, DataType(DataType.MultilineText)]
+        public string Cells { get; set; }
+
+    }
+
     namespace Models 
     {
         [MetadataType(typeof(RegisterViewModel))]
-        
         public partial class User
-        {
-            
-        }
+        {}
+        [MetadataType(typeof(UserTemplateMetadata))]
+        public partial class UserTemplate
+        { }
 
-    
 
     }
 

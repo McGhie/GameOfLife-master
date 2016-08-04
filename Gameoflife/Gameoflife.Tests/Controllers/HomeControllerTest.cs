@@ -33,7 +33,7 @@ namespace Gameoflife.Tests.Controllers
         //    HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Templates() as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
 
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
