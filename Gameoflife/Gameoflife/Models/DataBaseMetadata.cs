@@ -50,12 +50,14 @@ namespace Gameoflife.Models
 
     namespace Models 
     {
-        [MetadataType(typeof(RegisterViewModel))]
-        public partial class User
-        {}
+
         [MetadataType(typeof(UserTemplateMetadata))]
         public partial class UserTemplate
         { }
+        [MetadataType(typeof(RegisterViewModel))]
+        public partial class User
+        {}
+      
 
 
     }

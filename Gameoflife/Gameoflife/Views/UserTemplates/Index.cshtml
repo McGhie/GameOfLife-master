@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Gameoflife.Models.UserTemplate>
 
+
+
 @{
     ViewBag.Title = "Index";
 }
@@ -24,36 +26,38 @@
             @Html.DisplayNameFor(model => model.Cells)
         </th>
         <th>
-            
+
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Width)
-        </td>
-        <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                <pre style= "white-space: pre-line;"> 
             @Html.DisplayFor(modelItem => item.Cells)
-        </td>
+       </pre>
+            </td>
 
-@if (Session["User"] == null)
-{
-}
-else
-{
-    <td>
-        @Html.ActionLink("Edit", "Edit", new {id = item.UserTemplateID}) |
-        @Html.ActionLink("Delete", "Delete", new {id = item.UserTemplateID})
-    </td>
-}
-    </tr>
-}
+            @if (Session["User"] == null)
+            {
+            }
+            else
+            {
+                <td>
+                  @Html.ActionLink("Delete", "Delete", new {id = item.UserTemplateID})
+                </td>
+            }
+        </tr>
+    }
 
 </table>

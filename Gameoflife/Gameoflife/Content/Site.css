@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.cells {
+
+    white-space: pre-line;
+    background-color: rgb(144,123,132);
+    text-align: center;
+    margin-top: 2px;
+    
+
+}

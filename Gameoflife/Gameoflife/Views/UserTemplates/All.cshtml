@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Gameoflife.Models.UserTemplate>
+
+@using Gameoflife.Models
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+@using (Html.BeginForm("All", "UserTemplates", FormMethod.Get))
+{
+    <p>
+        @*The first paramater needs to match the key used to store the data in the
+            the ViewBag.*@
+    Search: @Html.TextBox("templateTitle")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+
+<table class="table">
+    <tr class="
+        h3">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Width)
+        </th >
+        <th class="text-center"><span >
+    @Html.DisplayNameFor(model => model.Cells)
+</span>
+        </th>
+        <th>
+            Designer
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td><span class="h4"
+                  >
+    @Html.DisplayFor(modelItem => item.Name)
+</span>
+            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Width)
+        </td>
+ <td><pre class="cells"> 
+            @Html.DisplayFor(modelItem => item.Cells)</pre>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+  
+    </tr>
+}
+
+</table>
+
+<div class="pagerDiv">
+
+    @{
+        int pageNumber = ViewBag.PageNumber;
+        int pageSize = ViewBag.PageSize;
+        int totalCells = ViewBag.TotalCells;
+
+        IPagedList<UserTemplate> pagedList = new StaticPagedList<UserTemplate>(Model,pageNumber,pageSize,totalCells);
+
+    }
+    Page@(pagedList.PageCount < pagedList.PageNumber ? 0 : pagedList.PageNumber) of @(pagedList.PageCount)
+    @Html.PagedListPager(pagedList, page => Url.Action("All", new { pageNumber = page }))
+
+
+
+
+</div>

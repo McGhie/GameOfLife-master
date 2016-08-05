@@ -15,6 +15,62 @@ namespace Gameoflife.Controllers
     {
         private GameOfLifeDataEntities1 db = new GameOfLifeDataEntities1();
 
+
+        // GET: UserTemplates
+        public ActionResult All(string templateTitle, int pageNumber = 1 )
+        {
+
+            const int PageSize = 5;
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = PageSize;
+            ViewBag.TotalCells = db.UserTemplates.Count();
+
+            if (!string.IsNullOrEmpty(templateTitle))
+            {
+
+
+                /* Select only those templates which contain the name
+                 * being searched for.
+                templates = templates.Where(t => t.Name.Contains(templateTitle));*/
+                return View(db.UserTemplates.OrderBy(u => u.UserID).Where(t => t.Name.Contains(templateTitle)).Skip((pageNumber - 1) * PageSize).Take(PageSize).ToList());
+            }
+
+           
+
+            return
+                    View(db.UserTemplates.OrderBy(u => u.UserID).Skip((pageNumber - 1)*PageSize).Take(PageSize).ToList());
+          
+
+
+        }
+
+
+        // GET: UserTemplates
+        public ActionResult Allnotused(string templateTitle)
+        {
+
+
+            var templates = from t in db.UserTemplates select t;
+
+            if (!string.IsNullOrEmpty(templateTitle))
+            {
+                /* Select only those templates which contain the name
+                 * being searched for.*/
+                templates = templates.Where(t => t.Name.Contains(templateTitle));
+            }
+
+
+
+            return View(templates);
+          
+
+
+        }
+
+
+
+
         // GET: UserTemplates
         public ActionResult Index()
         {
@@ -56,7 +112,7 @@ namespace Gameoflife.Controllers
 
                 db.UserTemplates.Add(userTemplate);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
           return View(userTemplate);
