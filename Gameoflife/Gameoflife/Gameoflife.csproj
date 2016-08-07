@@ -210,6 +210,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\GameofLifeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserGamesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -233,6 +234,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameOfLifeDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\gameoflife\GameOfLife.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs">
@@ -340,6 +342,9 @@
     <Content Include="Views\UserTemplates\Delete.cshtml" />
     <Content Include="Views\UserTemplates\Index.cshtml" />
     <Content Include="Views\UserTemplates\All.cshtml" />
+    <Content Include="Views\UserGames\CreateActiveGameStep1.cshtml" />
+    <Content Include="Views\UserGames\CreateActiveGameStep2.cshtml" />
+    <Content Include="Views\UserGames\PlayActiveGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
