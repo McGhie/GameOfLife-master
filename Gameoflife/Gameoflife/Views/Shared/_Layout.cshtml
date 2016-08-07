@@ -19,8 +19,7 @@ $("#newTemplate").hide();
 $("#templated").hide();
 $("#hiddenSubmitButton").hide();
 $("#cellBuilderHelper").hide();
-$("#myTable").hide();
-    $("td").click(function(){
+    $("#create td").click(function(){
         $(this).hide();
     });
 
@@ -30,9 +29,7 @@ $("#myTable").hide();
         $("#myTable").show();
        $("#cellBuilderHelper").show();
     });
-	  $("#newTemplate").click(function () {
-
-	      $("#cellBuilderHelper").hide();
+	 $("#newTemplate").click(function(){
 	     $("#newTemplate").hide();
 	     $("#hiddenSubmitButton").slideToggle("slow");
 			
