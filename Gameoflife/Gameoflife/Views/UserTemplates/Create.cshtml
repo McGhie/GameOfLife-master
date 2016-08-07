@@ -3,6 +3,99 @@
 @{
     ViewBag.Title = "Create";
 }
+<script>
+
+function savetemplatedata(){
+
+    var x= document.getElementById("x");
+    var y= document.getElementById("y");
+	var template="";
+	var insert;
+	var idNumber=0;
+	var i =0;
+	var j=0;
+
+
+   while(i<y.value){
+
+   while(j<x.value){
+
+   var thisCell=document.getElementById("cell_"+idNumber);
+   insert = thisCell.getAttribute("value");
+  thisCell.setAttribute("onclick", null);
+   template=template.concat(insert);
+   console.log(idNumber);
+       j++;
+   idNumber++;
+   }
+   template=template.concat("\n");
+       i++;
+   j=0;
+    }
+	
+	console.log("the template is:\n " + template);
+	document.getElementById("CellInputDevice").innerHTML = template;
+
+}
+
+function createblanktemplate() {
+
+    var i = 0;
+    var j = 0;
+    var cellID = 0;
+    var table = document.getElementById("myTable");
+    var x= document.getElementById("x");
+    var y= document.getElementById("y");
+	
+
+    while(i<y.value){
+	var row = table.insertRow(i);
+
+   while(j<x.value){
+   var cell = row.insertCell(j);
+   cell.setAttribute('id',"cell_"+cellID);
+   cell.setAttribute('value', "x");
+       cell.setAttribute('class', "newcell");
+   console.log("the cellid is "+cell.id);
+   var id = cell.id;
+       console.log(id);
+       cell.setAttribute('onclick', 'addOrRemove(id);');
+   cellID++;
+       j++;
+   }
+        i++;
+   j=0;
+    }
+
+  
+
+}
+
+function addOrRemove(id){
+//cell.style.background="red";
+var thisCell=document.getElementById(id);
+var val = thisCell.getAttribute("value");
+
+if(val === "x"){
+console.log(val);
+thisCell.style.background = "blue";
+thisCell.setAttribute('value',"0");
+}
+else{
+console.log(val);
+thisCell.style.background = "white";
+thisCell.setAttribute('value',"x");
+
+
+}
+
+
+
+}
+
+
+
+</script>
 
 
 
@@ -20,44 +113,108 @@
      
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10" autofocus>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter name", autofocus = "autofocus" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-5 createCellSize"  id ="high">
+                @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control", id = "y", type ="number", min = "1", max = "20" } })
                 @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" >
             @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-5 createCellSize" id ="width">
+                @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control ", id = "x", type = "number", min = "1", max = "20" } })
                 @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cells, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group" style="display:none">
+            @Html.LabelFor(model => model.Cells, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cells, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cells, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Cells, new {htmlAttributes = new {@class = "form-control",id ="CellInputDevice"}})
+                @Html.ValidationMessageFor(model => model.Cells, "", new {@class = "text-danger"})
             </div>
         </div>
 
-        <div class="form-group">
+        
+       
+
+
+        
+        <div class="form-group" id ="hiddenSubmitButton">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" id="btn" />
+                <input type="submit"  value="Ship Template to the Warehouse" class="btn btn-default" id="btn"/>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<div class="col-md-offset-2 col-md-10">
+
+    <br>
+
+
+    <button onclick="createblanktemplate()" id="blankTemplate">Initialise Template Foundations</button>
+
+
+    <table id="myTable"><tr><span id="cellBuilderHelper">Click on the cells to make them alive</span></tr></table>
+
+    <hr>
+    <br>
+    <button onclick="savetemplatedata()" id="newTemplate">Set Template in Stone</button>
+    <div>
+        <hr>
+        
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+    <script>
+
+
+        function cellheight() {
+            var x = document.getElementById("high").value;
+            var cells = document.getElementById("cells");
+            cells.css("width",x);
+            if (isNaN(x) || x < 1 || x > 20) {
+
+                document.getElementById("high").innerHTML.setIdAttribute();
+
+            }
+        }
+        function cellwidth() {
+            var x = document.getElementById("wide").value;
+
+            document.getElementById("cells").innerHTML.setIdAttribute.length = x;
+
+            if (isNaN(x) || x < 1 || x > 20) {
+                text = "Input not valid";
+                document.getElementById("cells").innerHTML.setAttribute(lengthAdjust);
+            }
+
+        }
+
+
+    </script>
+-->

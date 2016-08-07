@@ -4,8 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+        @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")<!--I don't think we need this one here -->
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    
+
+    <script>
+$(document).ready(function(){
+$("#newTemplate").hide();
+$("#templated").hide();
+$("#hiddenSubmitButton").hide();
+$("#cellBuilderHelper").hide();
+$("#myTable").hide();
+    $("td").click(function(){
+        $(this).hide();
+    });
+
+	  $("#blankTemplate").click(function(){
+        $("#blankTemplate").hide();
+        $("#newTemplate").show();
+        $("#myTable").show();
+       $("#cellBuilderHelper").show();
+    });
+	  $("#newTemplate").click(function () {
+
+	      $("#cellBuilderHelper").hide();
+	     $("#newTemplate").hide();
+	     $("#hiddenSubmitButton").slideToggle("slow");
+			
+    });
+
+	
+
+
+});
+    </script>
+   
 
 </head>
 <body>

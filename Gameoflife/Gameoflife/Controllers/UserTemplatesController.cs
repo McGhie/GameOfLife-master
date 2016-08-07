@@ -36,33 +36,8 @@ namespace Gameoflife.Controllers
                 return View(db.UserTemplates.OrderBy(u => u.UserID).Where(t => t.Name.Contains(templateTitle)).Skip((pageNumber - 1) * PageSize).Take(PageSize).ToList());
             }
 
-           
-
-            return
+           return
                     View(db.UserTemplates.OrderBy(u => u.UserID).Skip((pageNumber - 1)*PageSize).Take(PageSize).ToList());
-          
-
-
-        }
-
-
-        // GET: UserTemplates
-        public ActionResult Allnotused(string templateTitle)
-        {
-
-
-            var templates = from t in db.UserTemplates select t;
-
-            if (!string.IsNullOrEmpty(templateTitle))
-            {
-                /* Select only those templates which contain the name
-                 * being searched for.*/
-                templates = templates.Where(t => t.Name.Contains(templateTitle));
-            }
-
-
-
-            return View(templates);
           
 
 
@@ -105,6 +80,9 @@ namespace Gameoflife.Controllers
      
         public ActionResult Create( UserTemplate userTemplate)
         {
+
+        
+
             if (ModelState.IsValid)
             {
                 User user = (User) Session["User"];
@@ -115,11 +93,10 @@ namespace Gameoflife.Controllers
                 return RedirectToAction("Index","Home");
             }
 
-          return View(userTemplate);
+            return View();
         }
 
-      
-
+       
 
 
         // GET: UserTemplates/Delete/5

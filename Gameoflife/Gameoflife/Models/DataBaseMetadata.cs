@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json.Serialization;
 
 namespace Gameoflife.Models
 {
@@ -36,10 +37,10 @@ namespace Gameoflife.Models
 
     public class UserTemplateMetadata
     {
-        [Required]
+        [Required, ]
         public string Name { get; set;}
 
-        [Required, Range(1, 20)]
+        [Required(ErrorMessage = "the number has to be between 1 and 20" ), Range(1, 20)]
         public string Width { get; set; }
         [Required, Range(1, 20)]
         public string Height { get; set; }

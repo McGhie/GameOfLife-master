@@ -33,3 +33,54 @@ textarea {
     
 
 }
+
+/*below is for the create cells table*/
+
+
+ .newcell {
+     
+    border: 1px solid black;
+	width:25px;
+	height:25px;
+
+
+ }
+table{
+
+margin-left:80px;}
+
+
+
+#templateName{
+
+width:100px;
+}
+
+.createCellSize {
+
+    width: max-content;
+
+
+}
+
+#cellBuilderHelper {
+
+    border: 1px solid blue;
+    background-color: lightblue;
+    
+}
+
+#myTable {
+    margin-top: 20px;
+    border: 3px solid grey;
+    border-bottom:3px solid grey;
+    padding: 20px;
+
+}
+
+#newTemplate {
+
+    margin-top: 5px;
+
+}
+
