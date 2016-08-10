@@ -55,13 +55,13 @@ function createblanktemplate() {
 
         while (j < x.value) {
             var cell = row.insertCell(j);
-            cell.setAttribute('id', "cell_" + cellID);
-            cell.setAttribute('value', "x");
-            cell.setAttribute('class', "newcell");
+            cell.setAttribute("id", "cell_" + cellID);
+            cell.setAttribute("value", "x");
+            cell.setAttribute("class", "newcell");
             console.log("the cellid is " + cell.id);
             var id = cell.id;
             console.log(id);
-            cell.setAttribute('onclick', 'addOrRemove(id);');
+            cell.setAttribute("onclick", "addOrRemove(id);");
             cellID++;
             j++;
         }
@@ -81,12 +81,12 @@ function addOrRemove(id) {
     if (val === "x") {
         console.log(val);
         thisCell.style.background = "blue";
-        thisCell.setAttribute('value', "0");
+        thisCell.setAttribute("value", "0");
     }
     else {
         console.log(val);
         thisCell.style.background = "white";
-        thisCell.setAttribute('value', "x");
+        thisCell.setAttribute("value", "x");
 
 
     }

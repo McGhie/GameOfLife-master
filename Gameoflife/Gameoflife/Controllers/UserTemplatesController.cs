@@ -59,7 +59,8 @@ namespace Gameoflife.Controllers
             }
             else
             {
-                db.Users.Attach(user);
+                user = db.Users.Find(user.UserID);
+         
                 return View(user.UserTemplates.ToList());
             }
         }
