@@ -359,6 +359,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="Attributes\" />
   </ItemGroup>
   <PropertyGroup>
