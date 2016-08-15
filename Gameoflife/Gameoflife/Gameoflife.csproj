@@ -212,13 +212,6 @@
     <Compile Include="Admin\AdminForm.aspx.designer.cs">
       <DependentUpon>AdminForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Admin\AdminForm.aspx.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin\AdminForm.aspx.designer.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -273,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminForm.aspx" />
-    <Content Include="Admin\Admin\AdminForm.aspx" />
     <Content Include="App_Data\GameOfLifeData.mdf" />
     <Content Include="App_Data\GameOfLifeData_log.ldf">
       <DependentUpon>GameOfLifeData.mdf</DependentUpon>
