@@ -212,13 +212,6 @@
     <Compile Include="Admin\AdminForm.aspx.designer.cs">
       <DependentUpon>AdminForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Admin\AdminForm.aspx.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin\AdminForm.aspx.designer.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -232,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Models\DataBaseMetadata.cs" />
     <Compile Include="Models\GameOfLifeDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -273,7 +267,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminForm.aspx" />
-    <Content Include="Admin\Admin\AdminForm.aspx" />
     <Content Include="App_Data\GameOfLifeData.mdf" />
     <Content Include="App_Data\GameOfLifeData_log.ldf">
       <DependentUpon>GameOfLifeData.mdf</DependentUpon>
