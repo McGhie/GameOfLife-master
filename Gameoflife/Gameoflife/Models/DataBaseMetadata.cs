@@ -41,9 +41,9 @@ namespace Gameoflife.Models
         [Required, ]
         public string Name { get; set;}
 
-        [Required(ErrorMessage = "the number has to be between 1 and 20" ), Range(1, 20)]
+        [Required]
         public string Width { get; set; }
-        [Required, Range(1, 20)]
+        [Required]
         public string Height { get; set; }
         [Required, DataType(DataType.MultilineText)]
         public string Cells { get; set; }
