@@ -10,8 +10,18 @@ namespace Gameoflife.Admin
     public partial class AdminForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {/*
+            if (!PostBack)
+            {
+                using (var database = new GameOfLifeDataEntities())
+                {
+                    
+                }
+               var username = UserNameBox.Text;
+               var password = PasswordBox.Text;
+            }
+            */
+         
         }
     }
 }
