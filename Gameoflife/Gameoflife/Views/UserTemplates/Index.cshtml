@@ -3,7 +3,7 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Templates";
 }
 
 <h2>Index</h2>
@@ -47,12 +47,12 @@
             @Html.DisplayFor(modelItem => item.Cells)
        </pre>
             </td>
-
-            @if (Session["User"] == null)
+            <td>
+                @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID },null)
+            </td>
+            @if (Session["User"] != null)
             {
-            }
-            else
-            {
+            
                 <td>
                   @Html.ActionLink("Delete", "Delete", new {id = item.UserTemplateID})
                 </td>

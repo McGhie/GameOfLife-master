@@ -205,13 +205,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AdminForm.aspx.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminForm.aspx.designer.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -241,7 +234,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameOfLifeDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\gameoflife\GameOfLife.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\GameOfLife.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs">
@@ -264,7 +258,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\AdminForm.aspx" />
     <Content Include="App_Data\GameOfLifeData.mdf" />
     <Content Include="App_Data\GameOfLifeData_log.ldf">
       <DependentUpon>GameOfLifeData.mdf</DependentUpon>
@@ -353,6 +346,9 @@
     <Content Include="Views\UserGames\CreateActiveGameStep1.cshtml" />
     <Content Include="Views\UserGames\CreateActiveGameStep2.cshtml" />
     <Content Include="Views\UserGames\PlayActiveGame.cshtml" />
+    <Content Include="Views\UserGames\MyActiveGames.cshtml" />
+    <Content Include="Views\UserGames\MySavedGames.cshtml" />
+    <Content Include="Views\GameofLife\PlayGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -11,12 +11,16 @@ namespace Gameoflife.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["ActiveGames"]==null)
+            {
+                Session["ActiveGames"] = new List<UserGame>();
+            }
             return View();
         }
 
         public ActionResult Active()
         {
-            ViewBag.Message = "Your Active Games";
+            ViewBag.Message = "Your Active Games are not here";
 
             return View();
         }

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Gameoflife.Models.UserGame>
+
+@{
+    ViewBag.Title = "My Active Games";
+}
+
+<h2>My Active Games</h2>
+
+<p>
+    @Html.ActionLink("Add another game", "CreateActiveGameStep1")
+</p>
+    @if(Session["ActiveGames"] !=null)
+    {
+        
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Height)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Width)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cells)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            
+            @foreach (var item in Model.Select((value, index) => new { Value = value, Index = index }))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.Name )
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.Height)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value.Width)
+                    </td>
+                    <td>
+                        <pre style="white-space: pre-line;"> 
+                @Html.DisplayFor(modelItem => item.Value.Cells)
+           </pre>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Play Game", "PlayGame", "Gameoflife", new { gameIndex = item.Index }, null)
+                    </td>
+                     @if (Session["User"] != null)
+                     {
+                    <td>
+                        @Html.ActionLink("Save Game", "SaveActiveGame", "UserGames", new { gameIndex = item.Index }, null)
+                    </td>
+                     }
+                    <td>
+                        @Html.ActionLink("Delete Game", "DeleteActiveGame", "UserGames", new { gameIndex = item.Index }, null)
+                    </td>
+                </tr>
+                
+            }
+
+        </table>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <td>
+                    You have no active games
+                </td>
+            </tr>
+        </table>
+    }

@@ -21,6 +21,94 @@ namespace Gameoflife.Controllers
             return View(userGames.ToList());
         }
 
+
+        public ActionResult CreateActiveGameStep1()
+        {
+
+            IEnumerable<SelectListItem> items = db.UserTemplates.Select(c => new SelectListItem
+            {
+                Value = c.UserTemplateID.ToString(),
+                Text = c.Name
+
+            });
+            ViewBag.userTemplateID = items;
+            return View();
+        }
+
+       
+
+        public ActionResult CreateActiveGameStep2(int? userTemplateID)
+        {
+
+            if (userTemplateID == null)
+            {
+                //return RedirectToAction("Index");
+                //   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserTemplate userTemplate = db.UserTemplates.Find(userTemplateID);
+            /*if (userTemplate == null)
+            {
+                return userTemplateID;
+            }*/
+            return View(userTemplate);
+            
+        }
+
+        public ActionResult AddGames(int? userTemplateID)
+        {
+
+            var activeGames = (List<UserGame>)Session["ActiveGames"];
+
+            UserTemplate userTemplate = db.UserTemplates.Find(userTemplateID);
+            UserGame newGame = new UserGame();
+  
+            newGame.Name = userTemplate.Name;
+            newGame.Height = userTemplate.Height;
+            newGame.Width = userTemplate.Width;
+            newGame.Cells = userTemplate.Cells;
+            activeGames.Add(newGame);
+            Session["ActiveGames"] = activeGames;
+            
+            return Redirect("MyActiveGames");
+        }
+
+
+        public ActionResult DeleteActiveGame  (int gameIndex)
+        {
+             var activeGames = (List<UserGame>)Session["ActiveGames"];
+             activeGames.RemoveAt(gameIndex);
+             Session["ActiveGames"] = activeGames;
+            return Redirect("MyActiveGames");
+        }
+
+        public ActionResult SaveActiveGame(int gameIndex)
+        {
+
+            var activeGames = (List<UserGame>)Session["ActiveGames"];
+            UserGame game2Save = activeGames.ElementAt(gameIndex);
+            User sessionUser =(User) Session["User"];
+           
+            User user=db.Users.FirstOrDefault(u => u.Email == sessionUser.Email);
+            game2Save.UserID =(int) user.UserID;
+            string name = game2Save.Name;
+            var height = game2Save.Height;
+            db.UserGames.Add(game2Save);
+            db.SaveChanges();
+            activeGames.RemoveAt(gameIndex);
+            Session["ActiveGames"] = activeGames;
+            return Redirect("MySavedGames");
+        }
+
+        public ActionResult DeleteSavedGame(int gameIndex)
+        {
+            UserGame userGame = db.UserGames.Find(gameIndex);
+            db.UserGames.Remove(userGame);
+            db.SaveChanges();
+            return Redirect("MySavedGames");
+        }
+
+        
+
         // GET: UserGames/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,6 +122,30 @@ namespace Gameoflife.Controllers
                 return HttpNotFound();
             }
             return View(userGame);
+        }
+
+        public ActionResult MyActiveGames()
+        {
+            var activeGames = (List<UserGame>) Session["ActiveGames"];
+            return View(activeGames);
+        }
+
+
+        public ActionResult MySavedGames()
+        {
+            User user = (User)Session["User"];
+
+            if (user == null)
+            {
+                var userGames = db.UserGames.Include(u => u.User);
+                return View(userGames.ToList());
+            }
+            else
+            {
+                user = db.Users.Find(user.UserID);
+
+                return View(user.UserGames.ToList());
+            }
         }
 
         // GET: UserGames/Create

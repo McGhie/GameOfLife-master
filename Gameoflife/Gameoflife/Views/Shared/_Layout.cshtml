@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Game of Life</title>
         @Styles.Render("~/Content/css")
 
     @Scripts.Render("~/bundles/modernizr")<!--I don't think we need this one here -->
@@ -61,7 +61,8 @@ $("#seed_Cells").hide();
                 <ul class="nav navbar-nav">
 
                     <li>@Html.ActionLink("All Templates", "All", "UserTemplates")</li>
-                    <li>@Html.ActionLink("My Active Games", "Active", "Home")</li>
+                    <li>@Html.ActionLink("My Active Games", "MyActiveGames", "UserGames")</li>
+                    
                 </ul>
                 <ul class="nav navbar-nav right">
                    
@@ -74,6 +75,7 @@ $("#seed_Cells").hide();
                     else
                     {
                         <li>@Html.ActionLink("My Templates", "Index", "UserTemplates")</li>
+                        <li>@Html.ActionLink("My Saved Games", "MySavedGames", "UserGames")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
 
                     }

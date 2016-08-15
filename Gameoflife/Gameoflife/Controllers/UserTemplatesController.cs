@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -134,5 +135,31 @@ namespace Gameoflife.Controllers
             }
             base.Dispose(disposing);
         }
+
+      /*  public override string ToString()
+        {
+            StringBuilder output = new StringBuilder();
+            var cells=this.
+           /* for (int h = 0; h <= Height - 1; h++)
+            {
+
+                for (int w = 0; w <= Width - 1; w++)
+                {
+                    if (this.Cells[h][w] == Cell.Alive)
+                    {
+                        output.Append(aliveCellChar); 
+                    }
+                    else
+                    {
+                        output.Append(" ");
+                    }
+
+                }
+                output.AppendLine();
+            }
+
+
+            return output.ToString();
+        }*/
     }
 }

@@ -9,7 +9,10 @@
 }
 
 <h2>All</h2>
-
+@if (Session["User"] != null)
+{
+    @Html.ActionLink("Create New", "Create")
+}
 @using (Html.BeginForm("All", "UserTemplates", FormMethod.Get))
 {
     <p>
@@ -22,7 +25,7 @@
 
 
 <table class="table">
-    <tr class="
+    <tr class=""
         h3">
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -57,12 +60,14 @@
             @Html.DisplayFor(modelItem => item.Width)
         </td>
  <td><pre class="cells"> 
-            @Html.DisplayFor(modelItem => item.Cells)</pre>
+            @Html.DisplayFor(modelItem => item.Cells )</pre>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.User.FirstName)
         </td>
-  
+        <td>
+            @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID }, null)
+        </td>
     </tr>
 }
 
