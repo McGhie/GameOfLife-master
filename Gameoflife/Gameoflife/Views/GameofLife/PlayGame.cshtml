@@ -1,0 +1,58 @@
+﻿@model GameOfLife.GameofLife
+
+@{
+    ViewBag.Title = "PlayGame";
+}
+
+<h2>PlayGame</h2>
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>State</dt>
+        <dd>
+            <pre id="state">@Model</pre>
+        </dd>
+
+        <dt></dt>
+        <dd>
+            <button class="btn btn-primary btn-lg" id="playGame">Play Game</button>
+            <br /><br />
+            <button class="btn btn-primary btn-lg" id="stopGame" disabled>Stop Game</button>
+        </dd>
+    </dl>
+</div>
+
+<script>
+    $(document).ready(function()
+    {
+        var playGameButton = $("#playGame");
+        var stopGameButton = $("#stopGame");
+
+        // ReSharper disable once InconsistentNaming
+        var intervalID;
+
+        playGameButton.click(function()
+        {
+            playGameButton.prop("disabled", true);
+            stopGameButton.prop("disabled", false);
+
+            intervalID = setInterval(function()
+            {
+                $.post("@Url.Action("PlayGameTick")", function(data)
+                {
+                    $("#state").html(data);
+                });
+            }, 1000);
+        });
+
+        $("#stopGame").click(function()
+        {
+            playGameButton.prop("disabled", false);
+            stopGameButton.prop("disabled", true);
+
+            clearInterval(intervalID);
+        });
+    });
+</script>

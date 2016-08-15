@@ -1,96 +1,62 @@
-﻿@model Gameoflife.Models.UserGame
+﻿@model Gameoflife.Models.UserTemplate
 
 @{
-    ViewBag.Title = "CreateActiveGameStep2";
-    Layout = "~/Views/_ViewStart.cshtml";
+    ViewBag.Title = "Create Active Game Step 2";
+
 }
 
 <h2>Create Active Game - Step 2 of 2</h2>
 
-<form action="/UserGame/CreateActiveGameStep2?userTemplateID=2" method="post">
-    <input name="__RequestVerificationToken" type="hidden" value="6_MTsZS6slu3ww8eJAmkNq-BjCS7OFGh-wE6Cx068mohO9REStb9i54JcVSd7zSVDspqAhVghFrZy2ZmN6lfRn6eQ3CLAX5FarJ_EpRy9jU1" />    <div class="form-horizontal">
-        <hr />
+@using (Html.BeginForm("AddGames", "UserGames", FormMethod.Post))
+{
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cells)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cells)
+        </dd>
+
+    </dl>
 
 
-        <div class="form-group">
-            <label class="control-label col-md-2">Template</label>
-            <div class="col-md-10">
-                <p class="form-control-static">Glider</p>
-            </div>
-        </div>
+                <input class="form-control text-box single-line"   id="userTemplateID" name="userTemplateID" type="hidden" value="@Model.UserTemplateID" />
 
-        <div class="form-group">
-            <label class="control-label col-md-2">Height</label>
-            <div class="col-md-10">
-                <p class="form-control-static">3</p>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Width</label>
-            <div class="col-md-10">
-                <p class="form-control-static">3</p>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Cells</label>
-            <div class="col-md-10">
-                <pre style="display: inline-block;">█ █
- ██
- █ </pre>
-
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Name">Name</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" placeholder="Game name" type="text" value="Glider Game" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Height">Height</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Height must be a number." data-val-range="Height cannot be less than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Height field is required." id="Height" min="3" name="Height" placeholder="Must be at least 3" type="number" value="3" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="Height" data-valmsg-replace="true"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="Width">Width</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Width must be a number." data-val-range="Width cannot be less than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Width field is required." id="Width" min="3" name="Width" placeholder="Must be at least 3" type="number" value="3" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="Width" data-valmsg-replace="true"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="templateX">Template X Coordinate</label>
-            <div class="col-md-10">
-                <input class="form-control" data-val="true" data-val-number="The field Int32 must be a number." id="templateX" min="0" name="templateX" placeholder="Cannot be more than 0" required="" type="number" value="0" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="templateX" data-valmsg-replace="true"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="templateY">Template Y Coordinate</label>
-            <div class="col-md-10">
-                <input class="form-control" data-val="true" data-val-number="The field Int32 must be a number." id="templateY" min="0" name="templateY" placeholder="Cannot be more than 0" required="" type="number" value="0" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="templateY" data-valmsg-replace="true"></span>
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
-</form>
+
+
+}
 <p>
     <a href="/UserGame/MyActiveGames">Back to List</a>
 </p>

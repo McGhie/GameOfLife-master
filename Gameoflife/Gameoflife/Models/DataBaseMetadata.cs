@@ -37,6 +37,7 @@ namespace Gameoflife.Models
 
     public class UserTemplateMetadata
     {
+        public int UserID { get; set; }
         [Required, ]
         public string Name { get; set;}
 
@@ -49,6 +50,22 @@ namespace Gameoflife.Models
 
     }
 
+    public class UserGameMetadata
+    {
+       
+        [Required,]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "the number has to be between 1 and 20"), Range(1, 20)]
+        public string Width { get; set; }
+        [Required, Range(1, 20)]
+        public string Height { get; set; }
+        [Required, DataType(DataType.MultilineText)]
+        public string Cells { get; set; }
+
+    }
+
+
     namespace Models 
     {
 
@@ -58,7 +75,9 @@ namespace Gameoflife.Models
         [MetadataType(typeof(RegisterViewModel))]
         public partial class User
         {}
-      
+        [MetadataType(typeof(UserGameMetadata))]
+        public partial class UserGame
+        { }
 
 
     }

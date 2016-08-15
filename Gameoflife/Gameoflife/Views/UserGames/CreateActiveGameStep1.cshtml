@@ -1,55 +1,29 @@
-﻿@model Gameoflife.Models.UserGame
+﻿@model UserGame
+
+@using Gameoflife.Models
+@using PagedList
+@using PagedList.Mvc
 
 @{
-    ViewBag.Title = "View";
-    Layout = "~/Views/_ViewStart.cshtml";
+    ViewBag.Title = "Create Active Game";
+
 }
 
 
-        <h2>Create Active Game - Step 1 of 2</h2>
 
-        <form action="/UserGame/CreateActiveGameStep1" method="post">
-            <input name="__RequestVerificationToken" type="hidden" value="v7n3JyH_EyQpnt-3U5R4Ljy3TiECcXy6U5XmjGveQWPlEsr-QOxYRqr8vSGk8akSjMPViMd12KUnqjurwPn2q4ADO5nWYuleVX1008P2jDo1" />    <div class="form-horizontal">
-                <hr />
-
-
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="userTemplateID">Templates</label>
-                    <div class="col-md-10">
-                        <select class="form-control" id="userTemplateID" name="userTemplateID" required="">
-                            <option value="">--- Please select ---</option>
-                            <option value="1">Test</option>
-                            <option value="2">Glider</option>
-                            <option value="3">Smilie</option>
-                            <option value="6">test</option>
-                            <option value="7">Pika</option>
-                            <option value="9">dmt1</option>
-                            <option value="10">dmt2</option>
-                            <option value="11">a</option>
-                            <option value="12">Test</option>
-                            <option value="13">Test</option>
-                            <option value="14">template123</option>
-                            <option value="15">.</option>
-                            <option value="16">Blinker</option>
-                            <option value="17">Blinker</option>
-                            <option value="18">Blinker</option>
-                            <option value="19">tesrer</option>
-                            <option value="20">sdsadsa</option>
-                            <option value="21">JonTest</option>
-                        </select>
-                        <span class="field-validation-valid text-danger" data-valmsg-for="userTemplateID" data-valmsg-replace="true"></span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Next Step" class="btn btn-default" />
-                    </div>
-                </div>
+<h2>Create Active Game - Step 1 of 2</h2>
+@using (Html.BeginForm("CreateActiveGameStep2", "UserGames", FormMethod.Get))
+{
+    <p>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="userTemplateID">Templates</label>
+            <div class="col-md-10">
+                @Html.DropDownList("userTemplateID", "Select a Value")
+                    
+                    <input type="submit" value="Next Step" class="btn btn-default" />
+               
             </div>
-        </form>
-        <p>
-            <a href="/UserGame/MyActiveGames">Back to List</a>
-        </p>
-
+        </div>
+    </p>
+}
 
