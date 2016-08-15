@@ -225,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Models\DataBaseMetadata.cs" />
     <Compile Include="Models\GameOfLifeDataModel.Context.cs">
       <AutoGen>True</AutoGen>

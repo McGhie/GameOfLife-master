@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>
 	Game of Life - Administration
-</title><link rel="stylesheet" href="/Content/Site.css" /><link rel="stylesheet" href="Content/bootstrap.min.css" />
+</title><link rel="stylesheet" href="/Content/Site.css" /><link rel="stylesheet" href="/Content/bootstrap.min.css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
@@ -31,7 +31,11 @@
     <asp:TextBox runat="server" ID="UserNameBox"></asp:TextBox>
           <p>Password:</p>
     <asp:TextBox runat="server" ID="PasswordBox"></asp:TextBox>
+          
     <asp:Button runat="server" ID="AdminLoginButton" Text="Submit"/>
+          
+           <asp:GridView runat="server" ID="UserGridView"></asp:GridView>
+
     </div>
     </form>
 </body>
