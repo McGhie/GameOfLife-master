@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gameoflife.Models;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,7 @@ namespace GameOfLife
             Width = width;
             char[] cellArray = cells.ToArray();
             Cell[][] tempCells = new Cell[Height][];
+          
             var Counter = 0;
 
             for (int h = 0; h <= Height - 1; h++)
@@ -50,8 +53,25 @@ namespace GameOfLife
                 }
             }
             Cells = tempCells;
+            Counter = 0;
+            for (int h = 0; h <= Height - 1; h++)
+            {
+                tempCells[h] = new Cell[Width];
+                for (int w = 0; w <= Width - 1; w++)
+                {
+                    if (cellArray[Counter].ToString().Equals("x"))
+                    {
 
+                        tempCells[h][w] = Cell.Dead;
+                    }
+                    else
+                    {
+                        tempCells[h][w] = Cell.Alive;
 
+                    }
+                    Counter++;
+                }
+            }
         }
 
 
@@ -66,7 +86,7 @@ namespace GameOfLife
 
         public void TakeTurn()
         {
-            // var tempCells = Cells.Select(x => x.ToArray()).ToArray();
+            
             var tempCells = Cells;
             for (int h = 0; h <= Height - 1; h++)
             {
@@ -87,6 +107,9 @@ namespace GameOfLife
                 
             }
             Cells = tempCells;
+
+           
+            
         }
 
         public int CountLivingNeighbours(int xC, int yC)
