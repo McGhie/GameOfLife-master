@@ -59,7 +59,7 @@ namespace GameOfLife
                 tempCells[h] = new Cell[Width];
                 for (int w = 0; w <= Width - 1; w++)
                 {
-                    if (cellArray[Counter].ToString().Equals("x"))
+                    if (cellArray[Counter].ToString().Equals("0"))
                     {
 
                         tempCells[h][w] = Cell.Dead;

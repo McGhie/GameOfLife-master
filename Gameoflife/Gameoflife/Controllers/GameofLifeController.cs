@@ -40,14 +40,14 @@ namespace Gameoflife.Controllers
                     if (Cells[h][w] == Cell.Dead)
                     {
 
-                        outCells += "x";
+                        outCells += "0";
                     }
                     else
                     {
-                        outCells += "0";
+                        outCells += "x";
 
                     }
-                    outCells += "\n";
+                    outCells += "\n\r";
                 }
             }
             activeGames.ElementAt(gameIndex).Cells = outCells;
