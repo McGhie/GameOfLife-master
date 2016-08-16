@@ -1,60 +1,68 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace GameOfLife
 {
     public class GameofLife 
 
+        
     {
-        public GameofLife(int height, int width)
+
+        public GameofLife(int height, int width, string cells)
         {
-            if (height<1 || width<1 )
+
+            if (height < 1 || width < 1)
             {
                 throw new NotImplementedException();
             }
             Height = height;
             Width = width;
-            Cell[][] TempCells = new Cell[Height][];
-            for (int h = 0; h <= Height-1; h++)
+            char[] cellArray = cells.ToArray();
+            Cell[][] tempCells = new Cell[Height][];
+            var Counter = 0;
+
+            for (int h = 0; h <= Height - 1; h++)
             {
-                TempCells[h] = new Cell[Width];
-                for (int w = 0; w <= Width-1; w++)
+                tempCells[h] = new Cell[Width];
+                for (int w = 0; w <= Width - 1; w++)
                 {
-                    TempCells[h][w] = Cell.Dead;
+                    if (cellArray[Counter].ToString().Equals("\r"))
+                    {
+                        Counter++;
+                    }
+                    if (cellArray[Counter].ToString().Equals("\n"))
+                    {
+                        Counter++;
+                    }
+
+                    if (cellArray[Counter].ToString().Equals("x")) { 
+
+                        tempCells[h][w] = Cell.Dead;
+                    }
+                    else
+                    {
+                        tempCells[h][w] = Cell.Alive;
+
+                    }
+                    Counter++;
                 }
             }
-            Cells = TempCells;
+            Cells = tempCells;
 
-            
+
         }
+
+
+   
 
         public int Height { get; set; }
         public int Width { get; set; }
         public Cell[][] Cells { get; set; }
         const char aliveCellChar = '\u2588';
 
-        public void InsertTemplate(string cells)
-        {
-            string[] cellSplit = cells.Split('\n');
-            
-                for (int ix = 0; ix <= this.Height - 1; ix++)
-                {
-                    for (int iy = 0; iy <= this.Width - 1; iy++)
-                    {
-                       switch (cellSplit[ix].Substring(iy, 1))
-                    {
-                        case "O":
-                            Cells[ix][iy] = Cell.Alive;
-                            break;
-                        case "X":
-                            Cells[ix][iy] = Cell.Dead;
-                            break;
-                    }
- 
-                    }
-                }
-            
-        }
+    
 
         public void TakeTurn()
         {

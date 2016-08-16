@@ -13,11 +13,9 @@ namespace Gameoflife.Controllers
         {
             var activeGames = (List<UserGame>)Session["ActiveGames"];
             UserGame game2Play = activeGames.ElementAt(gameIndex);
-            GameOfLife.GameofLife gameOfLife = new GameOfLife.GameofLife(game2Play.Height, game2Play.Width);
-            gameOfLife.InsertTemplate(game2Play.Cells);
 
-            // var gameOfLife = new GameOfLife.GameofLife(0, 1);
-
+            GameOfLife.GameofLife gameOfLife = new GameOfLife.GameofLife(game2Play.Height, game2Play.Width,game2Play.Cells);
+            
             Session["GameOfLife"] = gameOfLife;
 
             return View(gameOfLife);
