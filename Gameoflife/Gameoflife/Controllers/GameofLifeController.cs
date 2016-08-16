@@ -47,7 +47,7 @@ namespace Gameoflife.Controllers
                         outCells += "x";
 
                     }
-                    outCells += "\n";
+                    outCells += "\n\r";
                 }
             }
             activeGames.ElementAt(gameIndex).Cells = outCells;
