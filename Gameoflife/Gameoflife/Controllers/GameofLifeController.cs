@@ -47,8 +47,9 @@ namespace Gameoflife.Controllers
                         outCells += "x";
 
                     }
-                    outCells += "\n\r";
+                    
                 }
+                outCells += "\r\n";
             }
             activeGames.ElementAt(gameIndex).Cells = outCells;
             Session["ActiveGames"] = activeGames;
