@@ -10,7 +10,7 @@
 namespace Gameoflife.Admin {
     
     
-    public partial class AdminForm {
+    public partial class MainAdmin {
         
         /// <summary>
         /// form1 control.
@@ -22,39 +22,21 @@ namespace Gameoflife.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// UserNameBox control.
+        /// UserButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserNameBox;
+        protected global::System.Web.UI.WebControls.Button UserButton;
         
         /// <summary>
-        /// PasswordBox control.
+        /// UserTemplateButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordBox;
-        
-        /// <summary>
-        /// AdminLoginButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AdminLoginButton;
-        
-        /// <summary>
-        /// EmailLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailLabel;
+        protected global::System.Web.UI.WebControls.Button UserTemplateButton;
     }
 }
