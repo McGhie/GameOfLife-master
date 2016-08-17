@@ -14,19 +14,30 @@ namespace Gameoflife.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var username = UserNameBox.Text;
+            var password = PasswordBox.Text;
             using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
-
             {
                 connection.Open();
+
                 var command = new SqlCommand("select * from [User]", connection);
-                
+
                 var adapter = new SqlDataAdapter(command);
+
                 var dataTable = new DataTable();
-               
                 adapter.Fill(dataTable);
-                UserGridView.DataSource = dataTable;
-                UserGridView.DataBind();
+                EmailLabel.Text = dataTable.Rows.Count.ToString();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if ((row["Email"].ToString() == username) && (row["Password"].ToString() == password) && (row["IsAdmin"].ToString() == "True"))
+                    {
+                        EmailLabel.Text = "Logged In";
+                    }
+                }
             }
+            
+
         }
         
     }

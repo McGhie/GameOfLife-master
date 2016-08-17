@@ -32,9 +32,9 @@
           <p>Password:</p>
     <asp:TextBox runat="server" ID="PasswordBox"></asp:TextBox>
           
-    <asp:Button runat="server" ID="AdminLoginButton" Text="Submit"/>
+    <asp:Button runat="server" ID="AdminLoginButton" Text="Login"/>
           
-           <asp:GridView runat="server" ID="UserGridView"></asp:GridView>
+    <asp:Label runat="server" ID="EmailLabel" Text=""></asp:Label>
 
     </div>
     </form>

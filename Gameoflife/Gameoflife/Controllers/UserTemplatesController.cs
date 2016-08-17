@@ -82,9 +82,6 @@ namespace Gameoflife.Controllers
      
         public ActionResult Create( UserTemplate userTemplate)
         {
-
-        
-
             if (ModelState.IsValid)
             {
                 User user = (User) Session["User"];
