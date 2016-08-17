@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -33,12 +34,40 @@ namespace Gameoflife.Admin
                     if ((row["Email"].ToString() == username) && (row["Password"].ToString() == password) && (row["IsAdmin"].ToString() == "True"))
                     {
                         EmailLabel.Text = "Logged In";
+                        
                     }
                 }
+
+
+
             }
-            
+
+            using(var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand("select * from [User]", connection);
+                var adapter = new SqlDataAdapter(command);
+                var dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                grdUsers.DataSource = dataTable;
+                grdUsers.DataBind();
+            }
+
+            using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand("select * from [UserTemplate]", connection);
+                var adapter = new SqlDataAdapter(command);
+                var dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                grdUserTemplates.DataSource = dataTable;
+                grdUserTemplates.DataBind();
+            }
+
 
         }
-        
+
     }
 }

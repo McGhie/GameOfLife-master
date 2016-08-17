@@ -37,6 +37,17 @@
     <asp:Label runat="server" ID="EmailLabel" Text=""></asp:Label>
 
     </div>
+     
+    <div>  
+     <asp:GridView runat="server" ID="grdUsers">
+         
+     </asp:GridView>
+        </div> 
+          <div>  
+     <asp:GridView runat="server" ID="grdUserTemplates">
+         
+     </asp:GridView>
+        </div>       
     </form>
 </body>
 </html>
