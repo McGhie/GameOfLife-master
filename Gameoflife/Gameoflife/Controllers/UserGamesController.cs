@@ -107,31 +107,7 @@ namespace Gameoflife.Controllers
             return Redirect("MySavedGames");
         }
 
-
-        public ActionResult PlaySavedGames(int gameIndex)
-        {
-
-            var activeGames = (List<UserGame>)Session["ActiveGames"];
-
-            UserGame userGame = db.UserGames.Find(gameIndex);
-           
-            UserGame newGame = new UserGame();
-
-            newGame.Name = userGame.Name;
-            newGame.Height = userGame.Height;
-            newGame.Width = userGame.Width;
-            newGame.Cells = userGame.Cells;
-            activeGames.Add(newGame);
-            Session["ActiveGames"] = activeGames;
-
-            
-            db.UserGames.Remove(userGame);
-            db.SaveChanges();
-
-            return Redirect("MyActiveGames");
-        }
-
-
+        
 
         // GET: UserGames/Details/5
         public ActionResult Details(int? id)
