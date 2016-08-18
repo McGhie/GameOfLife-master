@@ -178,6 +178,13 @@ background-color: rgba(9,34,59,1);
 
 }
 
+#create .theGame {
+    
+     max-width: 700px;
+
+
+}
+
     .theGame marquee {
 
         margin-left: 100px;

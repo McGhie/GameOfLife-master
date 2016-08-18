@@ -46,7 +46,8 @@
            </pre>
                     </td>
                     <td>
-                        @Html.ActionLink("Play Game", "PlaySavedGame", "UserGames", new { gameIndex = item.UserGameID }, null)
+                        @Html.ActionLink("Play Game", "PlayGame", "Gameoflife", new { gameIndex = item.Cells }, null)
+                        
                     </td>
                     <td>
                         @Html.ActionLink("Delete Game", "DeleteSavedGame", "UserGames", new { gameIndex = item.UserGameID }, null)

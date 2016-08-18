@@ -10,18 +10,19 @@
         patterns with particular properties.</p>
 
     <p><a href="/UserTemplates/All" class="btn btn-primary btn-lg gamebtn">All Templates&raquo;</a>
-    </p>
+    
 
-    <p><a href="/UserGames/CreateActiveGameStep1" class="btn btn-primary btn-lg gamebtn">Create Active Game&raquo;</a>
-    </p>
+    <a href="/UserGames/CreateActiveGameStep1" class="btn btn-primary btn-lg gamebtn">Create Active Game&raquo;</a>
+    
 
     @if (Session["User"] != null)
     {
-        <p>
-            <a href="/UserTemplates/Create" class="btn btn-primary btn-lg gamebtn">Create New Template&raquo;</a>
-        </p>
+       
+        <a href="/UserTemplates/Create" class="btn btn-primary btn-lg gamebtn">Create New Template&raquo;</a>
+        <a href="/UserGames/MyActiveGames" class="btn btn-primary btn-lg gamebtn">Play Active Game&raquo;</a>
+        <a href="/UserGames/MySaveGames" class="btn btn-primary btn-lg gamebtn">Load Game&raquo;</a>
     }
-    
+    </p>
 </div>
 
 <div class="row">
