@@ -92,7 +92,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e8e3', end
 }
 
 #myTable {
-    margin-top: 20px;
+    margin: auto;
+   
     border: 3px solid grey;
     border-bottom:3px solid grey;
     padding: 20px;
@@ -196,6 +197,17 @@ background-color: rgba(9,34,59,1);
 
 }
 
+#create .theGame div{
+
+    width: 80%;
+    margin: auto;
+    margin-bottom: 15px;
+
+
+}
+
+
+
     .theGame marquee {
 
         margin-left: 100px;
@@ -262,3 +274,14 @@ background-color: rgba(9,34,59,1);
 
 
     }
+
+
+    .golbuilder {
+
+        width: 30%;
+        margin: auto;
+        color: silver;
+        background-color: grey;
+        border-radius: 3px;
+    }
+

@@ -38,7 +38,8 @@ namespace Gameoflife.Models
     public class UserTemplateMetadata
     {
         public int UserID { get; set; }
-        [Required, ]
+
+        [Required]
         public string Name { get; set;}
 
         [Required]
