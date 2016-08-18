@@ -51,7 +51,30 @@ namespace GameOfLife
                     }
                     Counter++;
                 }
+<<<<<<< HEAD
      
+=======
+            }
+            Cells = tempCells;
+            Counter = 0;
+            for (int h = 0; h <= Height - 1; h++)
+            {
+                tempCells[h] = new Cell[Width];
+                for (int w = 0; w <= Width - 1; w++)
+                {
+                    if (cellArray[Counter].ToString().Equals("0"))
+                    {
+
+                        tempCells[h][w] = Cell.Dead;
+                    }
+                    else
+                    {
+                        tempCells[h][w] = Cell.Alive;
+
+                    }
+                    Counter++;
+                }
+>>>>>>> parent of bca35c8... fixed the gameof life functions
             }
         }
 
