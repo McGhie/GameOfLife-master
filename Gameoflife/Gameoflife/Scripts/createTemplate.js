@@ -57,10 +57,11 @@ function createblanktemplate() {
             var cell = row.insertCell(j);
             cell.setAttribute("id", "cell_" + cellID);
             cell.setAttribute("value", "X");
+            cell.style.background = "black";
             cell.setAttribute("class", "newcell");
-            console.log("the cellid is " + cell.id);
+         
             var id = cell.id;
-            console.log(id);
+           
             cell.setAttribute("onclick", "addOrRemove(id);");
             cellID++;
             j++;
@@ -80,12 +81,12 @@ function addOrRemove(id) {
 
     if (val === "X") {
         console.log(val);
-        thisCell.style.background = "blue";
+        thisCell.style.background = "#00a600";
         thisCell.setAttribute("value", "O");
     }
     else {
         console.log(val);
-        thisCell.style.background = "white";
+        thisCell.style.background = "black";
         thisCell.setAttribute("value", "X");
 
 
@@ -100,7 +101,7 @@ function seedCells() {
 
     var x = document.getElementById("x");
     var y = document.getElementById("y");
-
+    
     var idNumber = 0;
     var i = 0;
     var j = 0;
@@ -114,13 +115,13 @@ function seedCells() {
             console.log(num);
             if (num > 2) {
 
-                thisCell.style.background = "green";
+                thisCell.style.background = "#00a600";
                 thisCell.setAttribute('value', "O");
                 console.log(idNumber + "= " + thisCell.value);
             }
             else {
 
-                thisCell.style.background = "white";
+                thisCell.style.background = "black";
                 thisCell.setAttribute('value', "X");
             }
 

@@ -159,7 +159,7 @@ background-color: rgba(9,34,59,1);
 
 .theGame {
 
-    color: blue;
+    
     max-width: 600px;
     min-height: 700px;
     background-color: green;
@@ -172,7 +172,7 @@ background-color: rgba(9,34,59,1);
     border-radius: 38px;
     border-color: black;
     border: 20px ridge grey;
-     background-color: silver;
+    background-color: silver;
 
 
 
@@ -241,5 +241,6 @@ background-color: rgba(9,34,59,1);
         margin-top: 50px;
         width: 100px;
         height: 100px;
+
 
     }
