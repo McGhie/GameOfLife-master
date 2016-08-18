@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Gameoflife.Models;
 using GameOfLife;
 using System.Collections.Generic;
@@ -12,9 +13,12 @@ namespace Gameoflife.Controllers
         // GET: GameOfLife/PlayGame
         public ActionResult PlayGame(int gameIndex)
         {
-            var activeGames = (List<UserGame>)Session["ActiveGames"];
-            UserGame game2Play = activeGames.ElementAt(gameIndex);
+            //Need to check if this is coming from saved games or active games
 
+            
+           var activeGames = (List<UserGame>)Session["ActiveGames"];
+           UserGame game2Play = activeGames.ElementAt(gameIndex);
+          
             GameOfLife.GameofLife gameOfLife = new GameOfLife.GameofLife(game2Play.Height, game2Play.Width,game2Play.Cells);
             
             Session["GameOfLife"] = gameOfLife;

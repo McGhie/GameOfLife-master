@@ -45,9 +45,13 @@
                 @Html.DisplayFor(modelItem => item.Cells)
            </pre>
                     </td>
-                    <td>
-                        @Html.ActionLink("Play Game", "PlaySavedGame", "UserGames", new { gameIndex = item.UserGameID }, null)
-                    </td>
+
+
+    <td>
+        @Html.ActionLink("Play Game", "PlaySavedGames", "UserGames", new { gameIndex = item.UserGameID }, null)
+
+    </td>
+
                     <td>
                         @Html.ActionLink("Delete Game", "DeleteSavedGame", "UserGames", new { gameIndex = item.UserGameID }, null)
                     </td>
