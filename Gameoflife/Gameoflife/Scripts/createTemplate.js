@@ -56,7 +56,7 @@ function createblanktemplate() {
         while (j < x.value) {
             var cell = row.insertCell(j);
             cell.setAttribute("id", "cell_" + cellID);
-            cell.setAttribute("value", "x");
+            cell.setAttribute("value", "X");
             cell.setAttribute("class", "newcell");
             console.log("the cellid is " + cell.id);
             var id = cell.id;
@@ -78,15 +78,15 @@ function addOrRemove(id) {
     var thisCell = document.getElementById(id);
     var val = thisCell.getAttribute("value");
 
-    if (val === "x") {
+    if (val === "X") {
         console.log(val);
         thisCell.style.background = "blue";
-        thisCell.setAttribute("value", "0");
+        thisCell.setAttribute("value", "O");
     }
     else {
         console.log(val);
         thisCell.style.background = "white";
-        thisCell.setAttribute("value", "x");
+        thisCell.setAttribute("value", "X");
 
 
     }
@@ -115,13 +115,13 @@ function seedCells() {
             if (num > 2) {
 
                 thisCell.style.background = "green";
-                thisCell.setAttribute('value', "0");
+                thisCell.setAttribute('value', "O");
                 console.log(idNumber + "= " + thisCell.value);
             }
             else {
 
                 thisCell.style.background = "white";
-                thisCell.setAttribute('value', "x");
+                thisCell.setAttribute('value', "X");
             }
 
             j++;
