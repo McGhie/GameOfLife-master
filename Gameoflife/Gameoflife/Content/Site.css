@@ -178,6 +178,17 @@ background-color: rgba(9,34,59,1);
 
 }
 
+
+.amg {
+    width: 39%;
+    margin: auto;
+    margin-bottom: 5px;
+    color: silver;
+    background-color: grey;
+    padding: 1px;
+    border-radius: 3px;
+}
+
 #create .theGame {
     
      max-width: 700px;
