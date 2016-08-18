@@ -74,6 +74,9 @@ namespace GameOfLife
                     }
                     Counter++;
                 }
+<<<<<<< HEAD
+>>>>>>> parent of bca35c8... fixed the gameof life functions
+=======
 >>>>>>> parent of bca35c8... fixed the gameof life functions
             }
         }
