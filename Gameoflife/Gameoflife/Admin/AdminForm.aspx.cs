@@ -17,6 +17,7 @@ namespace Gameoflife.Admin
         {
             var username = UserNameBox.Text;
             var password = PasswordBox.Text;
+            string USERID;
             using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
             {
                 connection.Open();
@@ -27,44 +28,23 @@ namespace Gameoflife.Admin
 
                 var dataTable = new DataTable();
                 adapter.Fill(dataTable);
-                EmailLabel.Text = dataTable.Rows.Count.ToString();
-
+               
                 foreach (DataRow row in dataTable.Rows)
                 {
                     if ((row["Email"].ToString() == username) && (row["Password"].ToString() == password) && (row["IsAdmin"].ToString() == "True"))
                     {
                         EmailLabel.Text = "Logged In";
-                        
+                        Response.Redirect("User.aspx");
+                        USERID = row["UserID"].ToString();
                     }
                 }
 
+             
 
 
             }
 
-            using(var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
-            {
-                connection.Open();
-
-                var command = new SqlCommand("select * from [User]", connection);
-                var adapter = new SqlDataAdapter(command);
-                var dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                grdUsers.DataSource = dataTable;
-                grdUsers.DataBind();
-            }
-
-            using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
-            {
-                connection.Open();
-
-                var command = new SqlCommand("select * from [UserTemplate]", connection);
-                var adapter = new SqlDataAdapter(command);
-                var dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                grdUserTemplates.DataSource = dataTable;
-                grdUserTemplates.DataBind();
-            }
+       
 
 
         }

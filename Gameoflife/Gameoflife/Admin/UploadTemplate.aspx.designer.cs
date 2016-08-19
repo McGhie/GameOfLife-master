@@ -10,7 +10,7 @@
 namespace Gameoflife.Admin {
     
     
-    public partial class MainAdmin {
+    public partial class UploadTemplate {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,30 @@ namespace Gameoflife.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// UserButton control.
+        /// Uploader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UserButton;
+        protected global::System.Web.UI.WebControls.FileUpload Uploader;
         
         /// <summary>
-        /// UserTemplateButton control.
+        /// UploadLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UserTemplateButton;
+        protected global::System.Web.UI.WebControls.Label UploadLabel;
+        
+        /// <summary>
+        /// Save control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Save;
     }
 }

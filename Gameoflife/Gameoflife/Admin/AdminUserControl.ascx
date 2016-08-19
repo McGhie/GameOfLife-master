@@ -9,15 +9,16 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>  
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                </div>
-         </div>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+ 
+    <ul class="nav navbar-nav">
+     
+      <li><a href="User.aspx">User</a></li>
+      <li><a href="UserTemplates.aspx">User Templates</a></li> 
+      <li><a href="UploadTemplate.aspx">Upload Template</a></li> 
+    </ul>
+  </div>
+</nav>
+    </body>

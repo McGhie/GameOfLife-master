@@ -212,19 +212,19 @@
     <Compile Include="Admin\AdminForm.aspx.designer.cs">
       <DependentUpon>AdminForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\MainAdmin.aspx.cs">
-      <DependentUpon>MainAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\MainAdmin.aspx.designer.cs">
-      <DependentUpon>MainAdmin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\AdminUserControl.ascx.cs">
       <DependentUpon>AdminUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AdminUserControl.ascx.designer.cs">
       <DependentUpon>AdminUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UploadTemplate.aspx.cs">
+      <DependentUpon>UploadTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UploadTemplate.aspx.designer.cs">
+      <DependentUpon>UploadTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
@@ -295,8 +295,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminForm.aspx" />
-    <Content Include="Admin\MainAdmin.aspx" />
     <Content Include="Admin\AdminUserControl.ascx" />
+    <Content Include="Admin\UploadTemplate.aspx" />
     <Content Include="Admin\User.aspx" />
     <Content Include="Admin\UserTemplates.aspx" />
     <Content Include="App_Data\GameOfLifeData.mdf" />
