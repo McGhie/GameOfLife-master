@@ -47,12 +47,13 @@ namespace Gameoflife.Admin
                     connection.Open();
                     var cmd = new SqlCommand("INSERT INTO UserTemplate (UserID, Name, Height, Width, Cells) VALUES(@UserID, @Name, @Height, @Width, @Cells)",
                         connection);
-                    cmd.Parameters.AddWithValue("@UserID", SqlDbType.Int);
-                    cmd.Parameters.AddWithValue("@Name", SqlDbType.NVarChar);
-                    cmd.Parameters.AddWithValue("@Height", SqlDbType.Int);
-                    cmd.Parameters.AddWithValue("@Width", SqlDbType.Int);
-                    cmd.Parameters.AddWithValue("@Cells", SqlDbType.NVarChar);
+                    cmd.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = UserID;
+                    cmd.Parameters.AddWithValue("@Name", SqlDbType.NVarChar).Value = Name;
+                    cmd.Parameters.AddWithValue("@Height", SqlDbType.Int).Value = Height;
+                    cmd.Parameters.AddWithValue("@Width", SqlDbType.Int).Value = Width;
+                    cmd.Parameters.AddWithValue("@Cells", SqlDbType.NVarChar).Value = output; 
                     cmd.ExecuteNonQuery();
+                    connection.Close();
                 }
             }
 
