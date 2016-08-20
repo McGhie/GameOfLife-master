@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,7 +16,6 @@ namespace Gameoflife.Admin
         {
             var username = UserNameBox.Text;
             var password = PasswordBox.Text;
-            string USERID;
             using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
             {
                 connection.Open();
@@ -28,26 +26,19 @@ namespace Gameoflife.Admin
 
                 var dataTable = new DataTable();
                 adapter.Fill(dataTable);
-               
+                EmailLabel.Text = dataTable.Rows.Count.ToString();
+
                 foreach (DataRow row in dataTable.Rows)
                 {
                     if ((row["Email"].ToString() == username) && (row["Password"].ToString() == password) && (row["IsAdmin"].ToString() == "True"))
                     {
                         EmailLabel.Text = "Logged In";
-                        Response.Redirect("User.aspx");
-                        USERID = row["UserID"].ToString();
                     }
                 }
-
-             
-
-
             }
-
-       
-
+            
 
         }
-
+        
     }
 }
