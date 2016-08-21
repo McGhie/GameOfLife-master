@@ -23,7 +23,7 @@ namespace Gameoflife.Admin
                 adapter.Fill(dataTable);
                 grdUserTemplates.DataSource = dataTable;
                 grdUserTemplates.DataBind();
-             
+                
             }
         }
 

@@ -9,11 +9,17 @@
 <body>
 <uc:MyCustomControl  runat="server" />
     <form id="form1" runat="server">
-    <div>
+        
+    <div class="well col-md-6 col-md-offset-3">
+    <h3>Upload Template</h3>
     <asp:FileUpload runat="server" ID="Uploader"/>
+    <br/>
+    <br/>
+        <asp:Label runat="server" ID="UploadSuccess"></asp:Label>
+    <asp:Button runat="server" ID="Save" OnClick="ButtonClick" CssClass="btn-warning" Text="Upload Template" />
     </div>
-        <asp:Label runat="server" ID="UploadLabel" Text="default"></asp:Label>
-        <asp:Button runat="server" ID="Save" OnClick="ButtonClick"/>
-    </form>
+       
+        </form>
+    
 </body>
 </html>

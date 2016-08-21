@@ -13,6 +13,7 @@ namespace Gameoflife.Admin
 {
     public partial class AdminForm : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var username = UserNameBox.Text;
@@ -33,20 +34,10 @@ namespace Gameoflife.Admin
                 {
                     if ((row["Email"].ToString() == username) && (row["Password"].ToString() == password) && (row["IsAdmin"].ToString() == "True"))
                     {
-                        EmailLabel.Text = "Logged In";
-                        Response.Redirect("User.aspx");
-
-                        Session["UserID"] = row["UserID"].ToString();
-
-                       
-
-
+                        Session["UserID"] = row["UserID"];
+                        Response.Redirect("User.aspx");  
                     }
                 }
-
-             
-
-
             }
 
        

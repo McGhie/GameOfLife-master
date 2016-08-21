@@ -31,13 +31,13 @@ namespace Gameoflife.Admin {
         protected global::System.Web.UI.WebControls.FileUpload Uploader;
         
         /// <summary>
-        /// UploadLabel control.
+        /// UploadSuccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UploadLabel;
+        protected global::System.Web.UI.WebControls.Label UploadSuccess;
         
         /// <summary>
         /// Save control.

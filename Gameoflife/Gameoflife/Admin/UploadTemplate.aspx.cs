@@ -41,21 +41,19 @@ namespace Gameoflife.Admin
                 string output = string.Join("\r\n", Cells);
                 string Name = Uploader.FileName;
 
-
-                int UserID = 1;
-
-                    
                 using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
                 {
                     connection.Open();
                     var cmd = new SqlCommand("INSERT INTO UserTemplate (UserID, Name, Height, Width, Cells) VALUES(@UserID, @Name, @Height, @Width, @Cells)",
                         connection);
-                    cmd.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = UserID;
+                    cmd.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = Session["UserID"];
                     cmd.Parameters.AddWithValue("@Name", SqlDbType.NVarChar).Value = Name;
                     cmd.Parameters.AddWithValue("@Height", SqlDbType.Int).Value = Height;
                     cmd.Parameters.AddWithValue("@Width", SqlDbType.Int).Value = Width;
                     cmd.Parameters.AddWithValue("@Cells", SqlDbType.NVarChar).Value = output;
                     cmd.ExecuteNonQuery();
+
+                    UploadSuccess.Text = "Template Uploaded";
                 }
             }
 

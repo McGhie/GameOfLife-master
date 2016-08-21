@@ -10,6 +10,7 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css">
 </head>
 <body>
      <div class="navbar navbar-inverse navbar-fixed-top">
@@ -19,23 +20,16 @@
                 </div>
          </div>
     
-    <h3>Administrator Login</h3>
+   
     <form id="form1" runat="server">
-      <div>
-          <p>Username:</p>
-    <asp:TextBox runat="server" ID="UserNameBox"></asp:TextBox>
-          <p>Password:</p>
-    <asp:TextBox runat="server" ID="PasswordBox"></asp:TextBox>
-          
-    <asp:Button runat="server" ID="AdminLoginButton" Text="Login"/>
-          
-    <asp:Label runat="server" ID="EmailLabel" Text=""></asp:Label>
-
-    </div>
-     
-    <div>  
-    
-        </div>       
+      <div id="adminlogin" class="col-md-offset-5 col-md-7">
+           <h3>Administrator Login</h3>
+            <asp:TextBox runat="server" ID="UserNameBox" CssClass="form-control" placeHolder="Username"></asp:TextBox>
+          <br/>
+            <asp:TextBox runat="server" ID="PasswordBox" CssClass="form-control" placeHolder="Password"></asp:TextBox>
+          <br/>
+            <asp:Button runat="server" ID="AdminLoginButton" Text="Login" CssClass="btn-danger"/>
+    </div>  
     </form>
 </body>
 </html>
