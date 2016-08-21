@@ -4,61 +4,63 @@
     ViewBag.Title = "Create Active Game Step 2";
 
 }
+<div class="theGame">
 
-<h2>Create Active Game - Step 2 of 2</h2>
+    <h2>Create Active Game - Step 2 of 2</h2>
 
-@using (Html.BeginForm("AddGames", "UserGames", FormMethod.Post))
-{
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    @using (Html.BeginForm("AddGames", "UserGames", FormMethod.Post))
+    {
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Height)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Height)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Height)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Width)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Width)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Width)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Width)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cells)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cells)
+            </dt>
 
-        <dd>
-            <pre style="white-space: pre-line"> 
+            <dd class ="cellTableView">
+                <pre style="white-space: pre-line"> 
                 @Html.DisplayFor(model => model.Cells)
-</pre>        
-</dd>
+</pre>
+            </dd>
 
-    </dl>
-
-
-                <input class="form-control text-box single-line"   id="userTemplateID" name="userTemplateID" type="hidden" value="@Model.UserTemplateID" />
+        </dl>
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        <input class="form-control text-box single-line" id="userTemplateID" name="userTemplateID" type="hidden" value="@Model.UserTemplateID" />
 
 
-}
-<p>
-    <a href="/UserGame/MyActiveGames">Back to List</a>
-</p>
+                <div class="form-group">
+                    <div class="col-md-offset-8 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default gamebtn" />
+                    </div>
+                </div>
+
+
+    }
+    </div>
+    <p>
+        <a href="/UserGame/MyActiveGames">Back to List</a>
+    </p>

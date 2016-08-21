@@ -294,8 +294,17 @@ background-color: rgba(9,34,59,1);
         background-color: grey;
         border-radius: 3px;
 
+        }
 
+    .cellTableView {
 
+        width: 30%;
+        
+        }
 
-    }
+     .MyacitiveCellTableView {
 
+        width: 18%;
+        
+        
+        }

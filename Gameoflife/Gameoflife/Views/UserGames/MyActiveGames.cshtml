@@ -43,12 +43,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Value.Width)
                     </td>
-                    <td>
+                    <td class="MyacitiveCellTableView">
                         <pre style="white-space: pre-line;"> 
                 @Html.DisplayFor(modelItem => item.Value.Cells)
            </pre>
-                    </td>
-                    <td>
+                        </td>
+<td>
                         @Html.ActionLink("Play Game", "PlayGame", "Gameoflife", new { gameIndex = item.Index }, null)
                     </td>
                      @if (Session["User"] != null)
