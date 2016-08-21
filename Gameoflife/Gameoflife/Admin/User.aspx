@@ -14,18 +14,15 @@
     <form id="form1" runat="server">
         
     <div>
-    <asp:GridView runat="server" ID="grdUsers" CssClass="table table-hover table-striped" Width="80%">
-        <Columns>
-             <asp:TemplateField HeaderText="Delete?">
-                        <ItemTemplate>
-                            <span onclick="return confirm('Are you sure to Delete the record?')">
-                                <asp:LinkButton ID="lnkB" runat="Server" Text="Delete" CommandName="Delete"></asp:LinkButton>
-                            </span>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-        </Columns>
-        
-                
+    <asp:GridView runat="server" ID="grdUsers" CssClass="table table-hover table-striped" Width="80%" OnRowDeleting="GrdUserDelete">
+       
+             <Columns>  
+             <asp:CommandField ShowDeleteButton="true" ButtonType="Button">
+             
+                 </asp:CommandField>
+         </Columns>
+            
+                  
     </asp:GridView>
     </div>
     </form>

@@ -25,5 +25,24 @@ namespace Gameoflife.Admin
                 grdUsers.DataBind();
             }
         }
+
+        protected void GrdUserDelete(object sender, GridViewDeleteEventArgs e)
+        {
+            using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
+            {
+                connection.Open();
+                var cmdGame = new SqlCommand("DELETE FROM [UserGame] WHERE UserID = @UserID", connection);
+                var cmd = new SqlCommand("DELETE FROM [UserTemplate] WHERE UserID = @UserID", connection);
+                var command = new SqlCommand("DELETE FROM [User] WHERE UserID = @UserID", connection);
+                cmdGame.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value =
+                    Int32.Parse(grdUsers.Rows[e.RowIndex].Cells[1].Text);
+                cmd.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = Int32.Parse(grdUsers.Rows[e.RowIndex].Cells[1].Text);
+                command.Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = Int32.Parse(grdUsers.Rows[e.RowIndex].Cells[1].Text);
+                cmdGame.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }

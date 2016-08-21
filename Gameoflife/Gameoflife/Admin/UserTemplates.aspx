@@ -17,8 +17,7 @@
          </Columns>
      </asp:GridView>
      </div>
-        <asp:Label runat="server" ID="Index"></asp:Label>
-    </div>
+     </div>
     </form>
 </body>
 </html>

@@ -32,7 +32,6 @@ namespace Gameoflife.Admin
             using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
             {
                 int index = grdUserTemplates.SelectedIndex;
-                Index.Text = index.ToString();
                 connection.Open();
 
                 var command = new SqlCommand("DELETE FROM [UserTemplate] WHERE UserTemplateID = @UserTemplateID", connection);
