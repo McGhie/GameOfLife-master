@@ -9,9 +9,9 @@
 <p>
     @Html.ActionLink("Add another game", "CreateActiveGameStep1")
 </p>
-    @if(Session["ActiveGames"] !=null)
+    @if (Session["ActiveGames"] != null)
     {
-        
+        <div class="theGameDisplaywide">
         <table class="table">
             <tr>
                 <th>
@@ -30,12 +30,13 @@
 
                 </th>
             </tr>
-            
-            @foreach (var item in Model.Select((value, index) => new { Value = value, Index = index }))
+
+            @foreach (var item in Model.Select((value, index) => new {Value = value, Index = index}))
             {
+
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Value.Name )
+                        @Html.DisplayFor(modelItem => item.Value.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Value.Height)
@@ -43,36 +44,37 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Value.Width)
                     </td>
-                    <td class="MyacitiveCellTableView">
-                        <pre style="white-space: pre-line;"> 
+                    <td class="MyacitiveCellTableView" >
+                        <pre class="cells" > 
                 @Html.DisplayFor(modelItem => item.Value.Cells)
            </pre>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Play Game", "PlayGame", "Gameoflife", new {gameIndex = item.Index}, null)
+                    </td>
+                    @if (Session["User"] != null)
+                    {
+                        <td>
+                            @Html.ActionLink("Save Game", "SaveActiveGame", "UserGames", new {gameIndex = item.Index}, null)
                         </td>
-<td>
-                        @Html.ActionLink("Play Game", "PlayGame", "Gameoflife", new { gameIndex = item.Index }, null)
-                    </td>
-                     @if (Session["User"] != null)
-                     {
+                    }
                     <td>
-                        @Html.ActionLink("Save Game", "SaveActiveGame", "UserGames", new { gameIndex = item.Index }, null)
-                    </td>
-                     }
-                    <td>
-                        @Html.ActionLink("Delete Game", "DeleteActiveGame", "UserGames", new { gameIndex = item.Index }, null)
+                        @Html.ActionLink("Delete Game", "DeleteActiveGame", "UserGames", new {gameIndex = item.Index}, null)
                     </td>
                 </tr>
-                
+
             }
 
         </table>
-    }
-    else
-    {
-        <table class="table">
-            <tr>
-                <td>
-                    You have no active games
-                </td>
-            </tr>
-        </table>
-    }
+            </div>
+            }
+            else
+            {
+            <table class="table">
+                <tr>
+                    <td>
+                        You have no active games
+                    </td>
+                </tr>
+            </table>
+            }

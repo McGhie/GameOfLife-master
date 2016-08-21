@@ -11,53 +11,55 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Width)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cells)
-        </th>
-        <th>
-
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="theGameDisplaywide">
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width)
-            </td>
-            <td>
-                <pre style= "white-space: pre-line;"> 
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cells)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width)
+                </td>
+                <td>
+                    <pre class="cells"> 
             @Html.DisplayFor(modelItem => item.Cells)
        </pre>
-            </td>
-            <td>
-                @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID },null)
-            </td>
-            @if (Session["User"] != null)
-            {
-            
-                <td>
-                  @Html.ActionLink("Delete", "Delete", new {id = item.UserTemplateID})
                 </td>
-            }
-        </tr>
-    }
+                <td>
+                    @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID }, null)
+                </td>
+                @if (Session["User"] != null)
+                {
 
-</table>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserTemplateID })
+                    </td>
+                }
+            </tr>
+        }
+
+    </table>
+</div>

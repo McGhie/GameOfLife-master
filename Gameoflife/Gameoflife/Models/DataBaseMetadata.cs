@@ -76,9 +76,11 @@ namespace Gameoflife.Models
         [MetadataType(typeof(RegisterViewModel))]
         public partial class User
         {}
+
         [MetadataType(typeof(UserGameMetadata))]
         public partial class UserGame
-        { }
+        {}
+        
 
 
     }

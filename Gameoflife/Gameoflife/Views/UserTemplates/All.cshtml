@@ -23,55 +23,60 @@
     </p>
 }
 
+<div class="theGameDisplaywide">
+    <table class="table">
+        <tr class=""
+            h3">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th class="text-center">
+                <span>
+                    @Html.DisplayNameFor(model => model.Cells)
+                </span>
+            </th>
+            <th>
+                Designer
+            </th>
 
-<table class="table">
-    <tr class=""
-        h3">
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Width)
-        </th >
-        <th class="text-center"><span >
-    @Html.DisplayNameFor(model => model.Cells)
-</span>
-        </th>
-        <th>
-            Designer
-        </th>
-      
-    </tr>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td><span class="h4"
-                  >
-    @Html.DisplayFor(modelItem => item.Name)
-</span>
-            </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Width)
-        </td>
- <td><pre class="cells"> 
-            @Html.DisplayFor(modelItem => item.Cells )</pre>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID }, null)
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span class="h4">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </span>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width)
+                </td>
+                <td>
+                    <pre class="cells"> 
+            @Html.DisplayFor(modelItem => item.Cells)</pre>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                </td>
+                <td>
+                    @Html.ActionLink("Create Active Game", "CreateActiveGameStep2", "UserGames", new { userTemplateID = item.UserTemplateID }, null)
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+
+</div>
 
 <div class="pagerDiv">
 
