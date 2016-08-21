@@ -35,7 +35,11 @@ namespace Gameoflife.Admin
                     {
                         EmailLabel.Text = "Logged In";
                         Response.Redirect("User.aspx");
+<<<<<<< HEAD
                         Session["UserID"] = row["UserID"].ToString();
+=======
+                        Session["UserID"] = row["UserID"];
+>>>>>>> origin/almost-but-not
 
                     }
                 }

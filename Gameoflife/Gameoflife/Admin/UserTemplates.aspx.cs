@@ -17,7 +17,7 @@ namespace Gameoflife.Admin
             {
                 connection.Open();
 
-                var command = new SqlCommand("select * from [UserTemplate]", connection);
+                var command = new SqlCommand("select UserTemplateID, UserID, Name from [UserTemplate]", connection);
                 var adapter = new SqlDataAdapter(command);
                 var dataTable = new DataTable();
                 adapter.Fill(dataTable);
