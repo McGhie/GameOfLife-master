@@ -12,13 +12,12 @@
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
- 
     <ul class="nav navbar-nav">
-     
       <li><a href="User.aspx">User</a></li>
       <li><a href="UserTemplates.aspx">User Templates</a></li> 
-      <li><a href="UploadTemplate.aspx">Upload Template</a></li> 
-    </ul>
+      <li><a href="UploadTemplate.aspx">Upload Template</a></li>
+      <li> <a href="Logout.aspx">Logout</a></li>
+   </ul>
   </div>
 </nav>
     </body>

@@ -247,6 +247,13 @@
     <Compile Include="Admin\AdminUserControl.ascx.designer.cs">
       <DependentUpon>AdminUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UploadTemplate.aspx.cs">
       <DependentUpon>UploadTemplate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -318,6 +325,7 @@
   <ItemGroup>
     <Content Include="Admin\AdminForm.aspx" />
     <Content Include="Admin\AdminUserControl.ascx" />
+    <Content Include="Admin\Logout.aspx" />
     <Content Include="Admin\UploadTemplate.aspx" />
     <Content Include="Admin\User.aspx" />
     <Content Include="Admin\UserTemplates.aspx" />

@@ -10,16 +10,15 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/Content/Site.css">
+   
 </head>
 <body>
      <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                </div>
-                </div>
+               </div>
+            </div>
          </div>
-    
    
     <form id="form1" runat="server">
       <div id="adminlogin" class="col-md-offset-5 col-md-7">

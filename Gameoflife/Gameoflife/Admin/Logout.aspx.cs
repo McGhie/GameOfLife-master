@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace Gameoflife.Admin
 {
-    public partial class WebUserControl1 : System.Web.UI.UserControl
+    public partial class Logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Abandon();
+            Response.Redirect("AdminForm.aspx");
         }
-       
+    
     }
 }

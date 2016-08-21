@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<uc:MyCustomControl  runat="server" />
+<<uc:MyCustomControl  runat="server" />
 
     <form id="form1" runat="server">
         

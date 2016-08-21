@@ -39,10 +39,6 @@ namespace Gameoflife.Admin
                     }
                 }
             }
-
-       
-
-
         }
 
     }
