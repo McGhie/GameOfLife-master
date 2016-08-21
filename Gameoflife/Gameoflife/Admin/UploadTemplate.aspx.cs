@@ -35,12 +35,12 @@ namespace Gameoflife.Admin
                 for (int i = 2; i < stringList.Count; i++)
                 {
                     Cells.Add(stringList[i]);
-                    Cells.Add(Environment.NewLine);
+                   
                 }
 
-                string output = string.Join("", Cells);
-                string Name = "temp";
-                int UserID = 1;
+                string output = string.Join("\r\n", Cells);
+                string Name = Uploader.FileName;
+                int UserID = Session["UserID"].
                     
                 using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
                 {
