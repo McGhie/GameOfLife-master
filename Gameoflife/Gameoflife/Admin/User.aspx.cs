@@ -42,6 +42,7 @@ namespace Gameoflife.Admin
                 cmd.ExecuteNonQuery();
                 command.ExecuteNonQuery();
                 connection.Close();
+                Response.Redirect("User.aspx");
             }
         }
     }

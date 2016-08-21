@@ -36,7 +36,8 @@ namespace Gameoflife.Admin
 
                 var command = new SqlCommand("DELETE FROM [UserTemplate] WHERE UserTemplateID = @UserTemplateID", connection);
                 command.Parameters.AddWithValue("@UserTemplateID", SqlDbType.Int).Value = Int32.Parse(grdUserTemplates.Rows[e.RowIndex].Cells[1].Text);
-                command.ExecuteNonQuery();       
+                command.ExecuteNonQuery();
+                Response.Redirect("UserTemplates.aspx");
             }
         }
     }
