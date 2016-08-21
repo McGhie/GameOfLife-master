@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #c7b7a7;
+    background-color: #917dd2;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -337,4 +337,29 @@ background-color: rgba(9,34,59,1);
 
           width: 200px;
         
+        }
+        input {
+
+            background-color: silver;
+            opacity: .8;
+        }
+
+        td input {
+              background-color: silver;
+            opacity: .8;
+
+        }
+
+        .jumbotron {
+            
+background-color: silver;
+            opacity: .8;
+
+        }
+        #TemplateName {
+       
+          background-color: silver;
+            
+            border: solid grey; 
+
         }
