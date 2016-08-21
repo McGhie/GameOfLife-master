@@ -405,7 +405,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
-    <Content Include="Views\UserGames\Create.cshtml" />
     <Content Include="Views\UserGames\Delete.cshtml" />
     <Content Include="Views\UserGames\Details.cshtml" />
     <Content Include="Views\UserGames\Edit.cshtml" />
