@@ -25,7 +25,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10" autofocus>
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter name", autofocus = "autofocus" } })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control",id="TemplateName", placeholder = "Enter name", autofocus = "autofocus", required = "true" } })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             <p class="createTemplateInstructions">
                 <h4> Instructions:</h4>
                 Enter Game Name, Select Height and Width Range <b>MIN</b> 1 <b>Max</b> 20, Initialise Template <br/>
-                Click on the grid or seed Cells or do both (green is seeded and blue is you both are alive Cells) <br/>
+                Click in the black window or seed Cells or do both (green is alive and black is dead) <br/>
                 Set the template in stone, And then ship. You can then go and play you new Game.
             </p>
 

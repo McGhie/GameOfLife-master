@@ -40,18 +40,16 @@ namespace Gameoflife.Controllers
         public ActionResult CreateActiveGameStep2(int? userTemplateID)
         {
 
+        
+            UserTemplate userTemplate = db.UserTemplates.Find(userTemplateID);
             if (userTemplateID == null)
             {
-                //return RedirectToAction("Index");
-                //   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("CreateActiveGameStep1");
             }
-            UserTemplate userTemplate = db.UserTemplates.Find(userTemplateID);
-            /*if (userTemplate == null)
+            else
             {
-                return userTemplateID;
-            }*/
-            return View(userTemplate);
-            
+                return View(userTemplate);
+            }
         }
 
         public ActionResult AddGames(int? userTemplateID)

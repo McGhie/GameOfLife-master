@@ -285,3 +285,16 @@ background-color: rgba(9,34,59,1);
         border-radius: 3px;
     }
 
+    .Activebuilder {
+        
+         width: 50%;
+        margin: auto;
+        color: silver;
+        background-color: grey;
+        border-radius: 3px;
+
+
+
+
+    }
+

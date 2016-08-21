@@ -16,6 +16,7 @@ function savetemplatedata() {
     var idNumber = 0;
     var i = 0;
     var j = 0;
+    var checkiftableisblank = 0;
 
 
     while (i < y.value) {
@@ -24,9 +25,12 @@ function savetemplatedata() {
 
             var thisCell = document.getElementById("cell_" + idNumber);
             insert = thisCell.getAttribute("value");
+            if (insert === "O") {
+
+                checkiftableisblank++;
+            }
             thisCell.setAttribute("onclick", null);
             template = template.concat(insert);
-            console.log(idNumber);
             j++;
             idNumber++;
         }
@@ -35,9 +39,20 @@ function savetemplatedata() {
         j = 0;
     }
 
-    console.log("the template is:\n " + template);
-    document.getElementById("CellInputDevice").innerHTML = template;
-
+    if (checkiftableisblank === 0) {
+        alert("This must be the first time you have played?" +
+            " So we have inserted for you. Next time try clicking in the " +
+            "black space so you get to create your own"
+            );
+        $("#seed_Cells").hide();
+        seedCells();
+    }
+    else {
+        document.getElementById("CellInputDevice").innerHTML = template;
+        $("#seed_Cells").hide();
+        $("#newTemplate").hide();
+        $("#hiddenSubmitButton").slideToggle("slow");
+    }
 }
 
 function createblanktemplate() {

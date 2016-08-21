@@ -9,21 +9,23 @@
 
 }
 
+<div class="theGame">
 
+    <h2 class="Activebuilder"> 
+        Create Active Game - Step 1 of 2</h2>
+        @using (Html.BeginForm("CreateActiveGameStep2", "UserGames", FormMethod.Get))
+        {
 
-<h2>Create Active Game - Step 1 of 2</h2>
-@using (Html.BeginForm("CreateActiveGameStep2", "UserGames", FormMethod.Get))
-{
-    <p>
-        <div class="form-group">
-            <label class="control-label col-md-2" for="userTemplateID">Templates</label>
-            <div class="col-md-10">
-                @Html.DropDownList("userTemplateID", "Select a Value")
-                    
-                    <input type="submit" value="Next Step" class="btn btn-default" />
-               
-            </div>
-        </div>
-    </p>
-}
+            <p>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="userTemplateID">Templates</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("userTemplateID", "Select a Value")
 
+                    </div>
+                    <input   type="submit" value="Next Step" class="btn btn-default gamebtn" />
+
+                </div>
+            </p>
+        }
+</div>
