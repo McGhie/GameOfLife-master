@@ -38,7 +38,7 @@ namespace Gameoflife.Admin
 
                         Session["UserID"] = row["UserID"].ToString();
 
-                        Session["UserID"] = row["UserID"];
+                       
 
 
                     }
