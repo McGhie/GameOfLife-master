@@ -7,27 +7,17 @@
     <title></title>
 </head>
 <body>
-<uc:MyCustomControl  runat="server" />
+<uc:MyCustomControl  runat="server"/>
     <form id="form1" runat="server">
     <div>
-       <div>  
-     <asp:GridView runat="server" ID="grdUserTemplates">
-         <Columns>
+      <div>  
+     <asp:GridView runat="server" ID="grdUserTemplates" CssClass="table table-hover table-striped" Width="80%" OnRowDeleting="GrdUserTemplateDelete">
+         <Columns>  
              <asp:CommandField ShowDeleteButton="true" ButtonType="Button"/>
          </Columns>
-          <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" VerticalAlign="Top" />
-
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" />
-
-                <AlternatingRowStyle BackColor="White" />
      </asp:GridView>
-        </div>
+     </div>
+        <asp:Label runat="server" ID="Index"></asp:Label>
     </div>
     </form>
 </body>

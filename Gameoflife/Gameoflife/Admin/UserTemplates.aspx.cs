@@ -23,6 +23,21 @@ namespace Gameoflife.Admin
                 adapter.Fill(dataTable);
                 grdUserTemplates.DataSource = dataTable;
                 grdUserTemplates.DataBind();
+             
+            }
+        }
+
+        protected void GrdUserTemplateDelete(object sender, GridViewDeleteEventArgs e)
+        {
+            using (var connection = new SqlConnection(Globals.GameOfLifeConnectionString))
+            {
+                int index = grdUserTemplates.SelectedIndex;
+                Index.Text = index.ToString();
+                connection.Open();
+
+                var command = new SqlCommand("DELETE FROM [UserTemplate] WHERE UserTemplateID = @UserTemplateID", connection);
+                command.Parameters.AddWithValue("@UserTemplateID", SqlDbType.Int).Value = Int32.Parse(grdUserTemplates.Rows[e.RowIndex].Cells[1].Text);
+                command.ExecuteNonQuery();       
             }
         }
     }
